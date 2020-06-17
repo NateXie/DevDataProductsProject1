@@ -1,0 +1,24 @@
+---
+title: "Sydney Landmarks"
+output: html_document
+---
+
+```{r}
+library(leaflet)
+
+latlon <- data.frame(
+  lat = c(-33.8568, -33.8568, -33.8731, -33.8749),
+  lon = c(151.2153, 151.2108, 151.2113, 151.2009),
+  place = c("Sydney Opera House"
+            ,"Sydney Harbour Bridge"
+            ,"Hyde Park"
+            ,"Darling Harbour")
+  )
+
+map <- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat = latlon$lat, lng = latlon$lon, popup = latlon$place)
+
+map
+
+```
